@@ -7,4 +7,16 @@
     <string name="title_dashboard" />
     <string name="title_home" />
     <string name="title_notifications" />
+    <string name="geef_je_totem_naam_string_app_name">Geef je (totem)naam</string>
+    <string name="kies_jouw_tak">Kies jouw tak</string>
+    <string name="bevers">Bevers</string>
+    <string name="welpen">Welpen</string>
+    <string name="wolven">Wolven</string>
+    <string name="jv_jg">JV/JG</string>
+    <string name="v_g">V/G</string>
+    <string name="seniors">Seniors</string>
+    <string name="aanwezigheden">Aanwezigheden</string>
+    <string name="naam">naam</string>
+    <string name="volgende">Volgende</string>
+    <string name="title_activity_init">InitActivity</string>
 </resources>

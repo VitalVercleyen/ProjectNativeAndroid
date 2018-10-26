@@ -4,13 +4,24 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import vercleyen.vital.fosapp.Fragments.NameFragment
 import vercleyen.vital.fosapp.Fragments.PresenceListFragment
 import vercleyen.vital.fosapp.R
 
 class MainActivity : AppCompatActivity() {
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(container.id, PresenceListFragment())
+        transaction.commit()
+        navigation.setOnNavigationItemSelectedListener(OnNavigationItemSelectedListener)
+    }
+
+    private val OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         var changeTo = Fragment()
         when (item.itemId) {
 
@@ -27,17 +38,13 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
         }
+        changeFragment(changeTo)
         false
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(container.id, PresenceListFragment())
-        transaction.commit()
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-    }
+
+
+
 
     //Function to change the fragment currently displayed
     fun changeFragment(fragment : Fragment) {
@@ -46,4 +53,6 @@ class MainActivity : AppCompatActivity() {
         transaction.addToBackStack(null)
         transaction.commit()
     }
+
+
 }

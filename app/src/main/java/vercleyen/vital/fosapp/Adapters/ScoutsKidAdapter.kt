@@ -37,8 +37,8 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(scoutsKid: ScoutsKid) {
         itemView.tv_ScoutsKidName.text = scoutsKid.Name
-        itemView.rb_Aanwezig.isChecked = scoutsKid.Aanwezig
-        itemView.rb_vieruurtje.isChecked = scoutsKid.VierUurtje
+        itemView.cb_Aanwezig.isChecked = scoutsKid.Aanwezig
+        itemView.cb_vieruurtje.isChecked = scoutsKid.VierUurtje
     }
 
 }
