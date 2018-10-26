@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="475dp"
+    android:background="@color/colorWhite"
+    android:padding="5dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="340dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text=""
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="219dp">
+
+        <TextView
+            android:id="@+id/txt_dial"
+            android:layout_width="340dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="@string/popupDial"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+
+
+
+
+    <Button
+        android:id="@+id/btnfollow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ik begrijp het"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorWhite"/>
+
+</LinearLayout>

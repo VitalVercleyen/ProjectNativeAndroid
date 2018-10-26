@@ -19,4 +19,5 @@
     <string name="naam">naam</string>
     <string name="volgende">Volgende</string>
     <string name="title_activity_init">InitActivity</string>
+    <string name="popupDial">Op deze app krijg je de mogelijkheid om nog gemakkelijker alles voor je tak te regelen.</string>
 </resources>

@@ -1,6 +1,8 @@
 package vercleyen.vital.fosapp.Domain
 
+import android.icu.util.LocaleData
 import java.text.SimpleDateFormat
+import java.time.temporal.TemporalQueries
 import java.util.*
 
 class DummyDataSuplier {
@@ -13,9 +15,8 @@ class DummyDataSuplier {
 
         }
 
-        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        val currentDate = sdf.format(Date())
-        var aanwezigheid : Aanwezigheid = Aanwezigheid(23, currentDate, scoutsKids)
+        val currentDate = Date(System.currentTimeMillis())
+        var aanwezigheid = Aanwezigheid(23, currentDate.toString(), scoutsKids)
         return aanwezigheid
     }
 
