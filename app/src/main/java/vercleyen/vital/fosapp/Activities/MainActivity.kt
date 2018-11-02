@@ -1,11 +1,14 @@
 package vercleyen.vital.fosapp.Activities
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import vercleyen.vital.fosapp.Fragments.PresenceListFragment
 import vercleyen.vital.fosapp.Fragments.ProgramFragment
@@ -45,8 +48,16 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
+    fun Context.toast(message: CharSequence) =
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
+    fun showToast(context: Context, message : String) {
+        context.toast(message)
+    }
 
+    fun getTak(){
+        sharedPreferences!!.getTak()
+    }
 
 
 

@@ -29,7 +29,7 @@ class ProgramTabTwoFragment : Fragment() {
     }
 
     private fun opslaanView(view: View){
-        Toast.makeText(this.context, "wijzigen enabled", Toast.LENGTH_SHORT).show()
+        (activity as MainActivity).showToast(this.context!!, "wijzigen enabled")
         view.et_beschr.isEnabled = true
         view.et_benodigdheden.isEnabled = true
         view.btn_wijzig.setText("opslaan")
@@ -37,11 +37,13 @@ class ProgramTabTwoFragment : Fragment() {
     }
 
     private fun wijzigView(view: View){
-        Toast.makeText(this.context, "opgeslagen", Toast.LENGTH_SHORT).show()
+        (activity as MainActivity).showToast(this.context!!, "opgeslagen")
         view.et_benodigdheden.isEnabled = false
         view.et_beschr.isEnabled = false
         view.btn_wijzig.setText("wijzig")
         view.btn_wijzig.setOnClickListener { opslaanView(view)}
     }
+
+
 
 }

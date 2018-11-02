@@ -14,27 +14,28 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_scoutsKidLijst"
-            android:layout_width="411dp"
-            android:layout_height="436dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="395dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="1dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_search" />
 
         <EditText
             android:id="@+id/et_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="108dp"
+            android:background="@drawable/text_background"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/rv_scoutsKidLijst"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_save" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_Datum"
@@ -53,8 +54,8 @@
             android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="8dp"
             android:text="Opslaan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -63,8 +64,8 @@
             android:id="@+id/btn_voegToe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
             android:text="voeg toe"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

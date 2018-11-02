@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.list_item_activiteit.view.*
 import kotlinx.android.synthetic.main.list_item_scoutskid.view.*
+import vercleyen.vital.fosapp.Domain.Activiteit
 import vercleyen.vital.fosapp.Domain.ScoutsKid
 import vercleyen.vital.fosapp.R
 
@@ -39,6 +41,11 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         itemView.tv_ScoutsKidName.text = scoutsKid.Name
         itemView.cb_Aanwezig.isChecked = scoutsKid.Aanwezig
         itemView.cb_vieruurtje.isChecked = scoutsKid.VierUurtje
+    }
+
+    fun bind(activeteit : Activiteit){
+        itemView.tv_date.text = activeteit.date
+        itemView.tv_activiteit.text = activeteit.name
     }
 
 }
