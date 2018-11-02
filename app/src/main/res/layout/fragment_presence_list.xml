@@ -14,11 +14,11 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_scoutsKidLijst"
-            android:layout_width="408dp"
-            android:layout_height="521dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="411dp"
+            android:layout_height="436dp"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -27,20 +27,47 @@
             android:id="@+id/et_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/rv_scoutsKidLijst"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_save" />
 
         <TextView
             android:id="@+id/tv_Datum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aanwezigheden" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="88dp"
+            android:text="@string/aanwezigheden"
+            app:layout_constraintBottom_toTopOf="@+id/rv_scoutsKidLijst"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="16dp"
+            android:text="Opslaan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_voegToe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="3dp"
+            android:text="voeg toe"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </android.support.constraint.ConstraintLayout>

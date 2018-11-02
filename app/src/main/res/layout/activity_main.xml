@@ -5,12 +5,15 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MainActivity">
+    tools:context=".Activities.MainActivity"
+    android:background="@color/colorBackground">
+
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragmentContainer"/>
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

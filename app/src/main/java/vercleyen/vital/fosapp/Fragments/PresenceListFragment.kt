@@ -36,11 +36,17 @@ class PresenceListFragment : Fragment() {
         rootView.tv_Datum.setText(aanwezigheid.Date)
         rootView.rv_scoutsKidLijst.layoutManager = LinearLayoutManager(this.context)
         rootView.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(aanwezigheid.Kids!!)
+        rootView.btn_voegToe.setOnClickListener { voegKidToe(rootView) }
         searchBox = rootView.et_search
 
 
         setFilterList(searchBox!!, rootView)
         return rootView
+    }
+
+    private fun voegKidToe(view: View){
+        aanwezigheid.voegToe("kindje")
+        refresh(view, aanwezigheid.Kids!!)
     }
 
     private fun setFilterList(searchBox : EditText, rootView : View){
@@ -60,10 +66,15 @@ class PresenceListFragment : Fragment() {
                         }
                     }
                 }
-                rootView.rv_scoutsKidLijst.layoutManager = LinearLayoutManager(context)
-                rootView.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(filteredAanw.Kids!!)
+               refresh(rootView, filteredAanw.Kids!!)
             }
         })
+    }
+
+    private fun refresh(view : View, list : ArrayList<ScoutsKid>){
+
+        view.rv_scoutsKidLijst.layoutManager = LinearLayoutManager(this.context)
+        view.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(list)
     }
 
 

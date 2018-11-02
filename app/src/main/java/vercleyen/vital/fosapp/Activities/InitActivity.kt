@@ -31,11 +31,16 @@ class InitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_init)
+
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(fragmentContainer.id, NameFragment())
         transaction.commit()
         myDialog = Dialog(this)
+        setTitle("")
         sharedPreferences = SharedPreferencesClass(this)
+        if(!sharedPreferences!!.getTotem().equals(null)){
+            changeActivity()
+        }
     }
 
 

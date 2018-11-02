@@ -1,15 +1,20 @@
 package vercleyen.vital.fosapp.Activities
 
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import vercleyen.vital.fosapp.Fragments.PresenceListFragment
 import vercleyen.vital.fosapp.Fragments.ProgramFragment
 import vercleyen.vital.fosapp.R
+import vercleyen.vital.fosapp.SharedPreferences.SharedPreferencesClass
 
 class MainActivity : AppCompatActivity() {
+
+    private var sharedPreferences : SharedPreferencesClass? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(fragmentContainer.id, PresenceListFragment())
         transaction.commit()
+        sharedPreferences = SharedPreferencesClass(this)
+        setTitle(sharedPreferences!!.getTotem())
         navigation.setOnNavigationItemSelectedListener(OnNavigationItemSelectedListener)
     }
 

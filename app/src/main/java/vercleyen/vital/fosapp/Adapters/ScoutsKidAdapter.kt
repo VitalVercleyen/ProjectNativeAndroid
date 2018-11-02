@@ -14,7 +14,7 @@ class ScoutsKidAdapter(private val scoutsKidLijst : ArrayList<ScoutsKid>) : Recy
 
     //Gets the items inside the list
     override fun getItemCount(): Int {
-        return scoutsKidLijst.size
+        return scoutsKidLijst.size + 1
     }
 
     //when the viewHolder is created it adds the item to the holder (this happens for all items)

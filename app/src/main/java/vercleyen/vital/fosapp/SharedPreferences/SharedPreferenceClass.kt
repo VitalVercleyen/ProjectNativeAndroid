@@ -8,6 +8,7 @@ class SharedPreferencesClass(val context: Context){
     val PREFERENCE_NAME = "ProjectNativeAnroid"
     val PREFERENCE_TOTEM = "Totem"
     val PREFERENCE_TAK = "Tak"
+    val PREFERENCE_FILEURL = "fileUrl"
 
 
     val preference = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
@@ -29,6 +30,16 @@ class SharedPreferencesClass(val context: Context){
     fun setTak(tak: String){
         val editor = preference.edit()
         editor.putString(PREFERENCE_TAK, tak)
+        editor.apply()
+    }
+
+    fun getFileUrl() : String{
+        return preference.getString(PREFERENCE_FILEURL, "null")
+    }
+
+    fun setFileUrl(fileUrl: String){
+        val editor = preference.edit()
+        editor.putString(PREFERENCE_FILEURL, fileUrl)
         editor.apply()
     }
 
