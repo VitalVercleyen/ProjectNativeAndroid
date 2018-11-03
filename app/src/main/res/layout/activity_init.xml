@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.InitActivity"
-    android:background="@color/colorBackground"
-    android:theme="@style/AppTheme.Button">
+    android:background="@color/colorWhite"
+    android:theme="@style/AppTheme">
 
     <FrameLayout
         android:id="@+id/fragmentContainer"

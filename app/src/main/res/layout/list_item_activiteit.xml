@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:padding="5dp">
 
 
         <LinearLayout
@@ -15,17 +16,10 @@
 
             <TextView
                 android:id="@+id/tv_date"
-                android:layout_width="99dp"
+                android:layout_width="105dp"
                 android:layout_height="match_parent"
                 android:padding="20dp"
                 android:textSize="20sp" />
-
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorBackground" />
 
             <TextView
                 android:id="@+id/tv_activiteit"
@@ -38,7 +32,7 @@
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="0.5dp"
         android:background="@color/colorBackground" />
 
 </LinearLayout>

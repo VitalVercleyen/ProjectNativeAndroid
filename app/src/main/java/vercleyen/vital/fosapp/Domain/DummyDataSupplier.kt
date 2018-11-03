@@ -11,7 +11,7 @@ class DummyDataSuplier {
     public fun AanwezigheidData() : Aanwezigheid{
         var scoutsKids : ArrayList<ScoutsKid> = ArrayList()
         for(i in 1..10)   {
-            var kid = ScoutsKid(i, ("kind" + i), false, false)
+            var kid = ScoutsKid(i, ("kind" + i), if(i % 2 == 0) "boy" else "girl", false, false)
             scoutsKids.add(kid)
 
         }

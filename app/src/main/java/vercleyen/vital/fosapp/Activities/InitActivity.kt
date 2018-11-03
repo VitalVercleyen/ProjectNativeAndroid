@@ -39,7 +39,7 @@ class InitActivity : AppCompatActivity() {
         setTitle("")
         sharedPreferences = SharedPreferencesClass(this)
         if(!sharedPreferences!!.getTotem().equals(null)){
-            changeActivity()
+           changeActivity()
         }
     }
 

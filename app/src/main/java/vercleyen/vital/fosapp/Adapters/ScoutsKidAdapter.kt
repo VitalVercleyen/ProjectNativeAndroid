@@ -16,7 +16,7 @@ class ScoutsKidAdapter(private val scoutsKidLijst : ArrayList<ScoutsKid>) : Recy
 
     //Gets the items inside the list
     override fun getItemCount(): Int {
-        return scoutsKidLijst.size + 1
+        return scoutsKidLijst.size
     }
 
     //when the viewHolder is created it adds the item to the holder (this happens for all items)
@@ -41,6 +41,7 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         itemView.tv_ScoutsKidName.text = scoutsKid.Name
         itemView.cb_Aanwezig.isChecked = scoutsKid.Aanwezig
         itemView.cb_vieruurtje.isChecked = scoutsKid.VierUurtje
+        itemView.imageView.setImageResource(if (scoutsKid.gender == "boy") R.drawable.boy else R.drawable.girl)
     }
 
     fun bind(activeteit : Activiteit){
