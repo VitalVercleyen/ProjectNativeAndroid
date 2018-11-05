@@ -3,6 +3,7 @@ package vercleyen.vital.fosapp.Fragments
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,9 +31,26 @@ class ProgramTabOneFragment : Fragment() {
         rootview.tv_tak.setText("Programma" + (activity as MainActivity).getTak())
         rootview.rv_programma.layoutManager = LinearLayoutManager(this.context)
         rootview.rv_programma.adapter = ProgrammaAdapter(activiteiten)
-
+        setRecyclerViewHeight(rootview)
 
         return rootview
+    }
+
+    private fun setRecyclerViewHeight(view:View){
+        var displaymetrics : DisplayMetrics = DisplayMetrics();
+        (activity as MainActivity).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        //if you need three fix imageview in width
+        var devicewidth : Int = displaymetrics.widthPixels;
+
+        //if you need 4-5-6 anything fix imageview in height
+        var deviceheight : Int = (displaymetrics.heightPixels / 100) * 70
+
+        view.rv_programma.getLayoutParams().width = devicewidth;
+
+        //if you need same height as width you can set devicewidth in holder.image_view.getLayoutParams().height
+        view.rv_programma.getLayoutParams().height = deviceheight;
+
+
     }
 
 

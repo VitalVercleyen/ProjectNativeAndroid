@@ -12,7 +12,7 @@ import vercleyen.vital.fosapp.Domain.ScoutsKid
 import vercleyen.vital.fosapp.R
 
 //This class sets the RecycleViews up incl click listeners
-class ScoutsKidAdapter(private val scoutsKidLijst : ArrayList<ScoutsKid>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ScoutsKidAdapter(private val scoutsKidLijst : ArrayList<ScoutsKid>, private val clickListener: (ScoutsKid) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //Gets the items inside the list
     override fun getItemCount(): Int {
@@ -27,7 +27,7 @@ class ScoutsKidAdapter(private val scoutsKidLijst : ArrayList<ScoutsKid>) : Recy
 
     //After the items are added this function calls the bind function
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ViewHolder).bind(scoutsKidLijst[position])
+        (holder as ViewHolder).bind(scoutsKidLijst[position], clickListener)
     }
 
 }
@@ -35,13 +35,13 @@ class ScoutsKidAdapter(private val scoutsKidLijst : ArrayList<ScoutsKid>) : Recy
 //Subclass where the viewholder is defined
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     //Gets run after the viewholder is made, this adds data to the fields
-
-
-    fun bind(scoutsKid: ScoutsKid) {
+    private var genderMap : HashMap<String, Int> = hashMapOf("boy" to R.drawable.boy, "girl" to R.drawable.girl,"x" to R.drawable.xgender)
+    fun bind(scoutsKid: ScoutsKid, clickListener: (ScoutsKid) -> Unit) {
         itemView.tv_ScoutsKidName.text = scoutsKid.Name
         itemView.cb_Aanwezig.isChecked = scoutsKid.Aanwezig
         itemView.cb_vieruurtje.isChecked = scoutsKid.VierUurtje
-        itemView.imageView.setImageResource(if (scoutsKid.gender == "boy") R.drawable.boy else R.drawable.girl)
+        itemView.setOnClickListener{clickListener(scoutsKid)}
+        itemView.imageView.setImageResource(genderMap[scoutsKid.gender]!!)
     }
 
     fun bind(activeteit : Activiteit){

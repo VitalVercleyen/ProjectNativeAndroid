@@ -1,10 +1,8 @@
 package vercleyen.vital.fosapp.Activities
 
 import android.os.Bundle
-import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
-import android.graphics.Color
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -14,10 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_name_screen.*
 import kotlinx.android.synthetic.main.fragment_tak.*
 import vercleyen.vital.fosapp.Fragments.NameFragment
-import vercleyen.vital.fosapp.Fragments.PresenceListFragment
 import vercleyen.vital.fosapp.Fragments.TakFragment
 import vercleyen.vital.fosapp.SharedPreferences.SharedPreferencesClass
-import android.graphics.drawable.ColorDrawable
 import android.widget.Button
 import android.widget.TextView
 
@@ -38,9 +34,10 @@ class InitActivity : AppCompatActivity() {
         myDialog = Dialog(this)
         setTitle("")
         sharedPreferences = SharedPreferencesClass(this)
-        if(!sharedPreferences!!.getTotem().equals(null)){
+        if(sharedPreferences!!.getFirstStart() == "1"){
            changeActivity()
         }
+        sharedPreferences!!.setFirstStart("1")
     }
 
 
@@ -85,7 +82,7 @@ class InitActivity : AppCompatActivity() {
         val btnFollow : Button
         val txtTitle : TextView
         val txtDial: TextView
-        myDialog!!.setContentView(R.layout.popup)
+        myDialog!!.setContentView(R.layout.init_popup)
         txtTitle = myDialog!!.findViewById(R.id.txt_title) as TextView
         txtDial = myDialog!!.findViewById(R.id.txt_dial) as TextView
         btnFollow = myDialog!!.findViewById(R.id.btnfollow) as Button

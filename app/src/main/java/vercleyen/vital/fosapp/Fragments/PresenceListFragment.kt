@@ -1,9 +1,6 @@
 package vercleyen.vital.fosapp.Fragments
 
 import android.app.Dialog
-import android.content.Context
-import android.media.Image
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -17,13 +14,14 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_presence_list.view.*
-import org.w3c.dom.Text
 import vercleyen.vital.fosapp.Adapters.ScoutsKidAdapter
 import vercleyen.vital.fosapp.Domain.Aanwezigheid
 import vercleyen.vital.fosapp.Domain.DummyDataSuplier
 import vercleyen.vital.fosapp.Domain.ScoutsKid
 
 import vercleyen.vital.fosapp.R
+import android.util.DisplayMetrics
+import vercleyen.vital.fosapp.Activities.MainActivity
 
 
 class PresenceListFragment : Fragment() {
@@ -33,6 +31,8 @@ class PresenceListFragment : Fragment() {
     private var searchBox: EditText? = null
     private var filteredAanw : Aanwezigheid = DummyDataSuplier().AanwezigheidData()
     private var myDialog : Dialog? = null
+    private var genderMap : HashMap<String, Int> = hashMapOf("boy" to R.drawable.boy, "girl" to R.drawable.girl,"x" to R.drawable.xgender)
+
 
 
 
@@ -43,40 +43,79 @@ class PresenceListFragment : Fragment() {
         aanwezigheid = DummyDataSuplier().AanwezigheidData()
         myDialog = Dialog(this.context)
         rootView.tv_Datum.setText(aanwezigheid.Date)
-        rootView.rv_scoutsKidLijst.layoutManager = LinearLayoutManager(this.context)
-        rootView.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(aanwezigheid.Kids!!)
-        rootView.btn_voegToe.setOnClickListener { showPopUp(rootView) }
+        refresh(rootView, aanwezigheid.Kids!!)
+        rootView.btn_voegToe.setOnClickListener { voegKidToePopUp(rootView) }
         searchBox = rootView.et_search
+        setRecyclerViewHeight(rootView)
 
 
         setFilterList(searchBox!!, rootView)
         return rootView
     }
 
-    private fun showPopUp(view : View){
+    private fun scoutsKidClickedPopUp(scoutsKid : ScoutsKid){
+        myDialog!!.setContentView(R.layout.kid_setting_popup)
+        val txtTitle = myDialog!!.findViewById(R.id.tv_title) as TextView
+        val exit = myDialog!!.findViewById(R.id.tv_close) as TextView
+        val portrait = myDialog!!.findViewById(R.id.iv_kid) as ImageView
+        val btnNext = myDialog!!.findViewById(R.id.btn_nextTak) as Button
+        val btnPrevious = myDialog!!.findViewById(R.id.btn_previousTak) as Button
+        val btnEdit = myDialog!!.findViewById(R.id.btn_edit) as Button
+        val btnDelete = myDialog!!.findViewById(R.id.btn_delete) as Button
+        txtTitle.text = scoutsKid.Name
+        portrait.setImageResource(genderMap[scoutsKid.gender]!!)
+        exit.setOnClickListener {
+            myDialog!!.dismiss()
+        }
+        myDialog!!.show()
+    }
+
+    private fun setRecyclerViewHeight(view:View){
+       var displaymetrics : DisplayMetrics = DisplayMetrics();
+        (activity as MainActivity).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        //if you need three fix imageview in width
+        var devicewidth : Int = displaymetrics.widthPixels;
+
+        //if you need 4-5-6 anything fix imageview in height
+        var deviceheight : Int = (displaymetrics.heightPixels / 100) * 60
+
+        view.rv_scoutsKidLijst.getLayoutParams().width = devicewidth;
+
+        //if you need same height as width you can set devicewidth in holder.image_view.getLayoutParams().height
+        view.rv_scoutsKidLijst.getLayoutParams().height = deviceheight;
+
+
+    }
+
+    private fun voegKidToePopUp(view : View){
         var boy : ImageView? = null
         var girl : ImageView? = null
+        var x : ImageView? =  null
         var name : EditText? = null
         myDialog!!.setContentView(R.layout.add_kid_popup)
         name =  myDialog!!.findViewById(R.id.et_name)
         boy = myDialog!!.findViewById(R.id.iv_boy) as ImageView
         girl = myDialog!!.findViewById(R.id.iv_girl) as ImageView
+        x = myDialog!!.findViewById(R.id.iv_x) as ImageView
         boy.setOnClickListener{
-            voegKidToe(view, name!!.text.toString() ,true)
+            voegKidToe(view, name!!.text.toString() ,"boy")
             myDialog!!.dismiss()
         }
         girl.setOnClickListener{
-            voegKidToe(view, name!!.text.toString(), false)
+            voegKidToe(view, name!!.text.toString(), "girl")
             myDialog!!.dismiss()
         }
-
+        x.setOnClickListener {
+            voegKidToe(view, name!!.text.toString(), "x")
+            myDialog!!.dismiss()
+        }
 
         myDialog!!.show()
     }
 
-    private fun voegKidToe(view: View, name :String,  isBoy : Boolean){
+    private fun voegKidToe(view: View, name :String,  gender : String){
 
-        aanwezigheid.voegToe(name, isBoy)
+        aanwezigheid.voegToe(name, gender)
         refresh(view, aanwezigheid.Kids!!)
     }
 
@@ -105,7 +144,7 @@ class PresenceListFragment : Fragment() {
     private fun refresh(view : View, list : ArrayList<ScoutsKid>){
 
         view.rv_scoutsKidLijst.layoutManager = LinearLayoutManager(this.context)
-        view.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(list)
+        view.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(list) { scoutsKid -> scoutsKidClickedPopUp(scoutsKid)}
     }
 
 

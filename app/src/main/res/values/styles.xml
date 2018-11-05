@@ -6,8 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:colorAccent">@color/colorAccent</item>
-        <item name="android:buttonStyle">@style/AppTheme.Button</item>
+        <item name="android:buttonStyle">@style/AppTheme.ButtonPrimary</item>
         <item name="android:editTextBackground">@drawable/text_background</item>
     </style>
 
@@ -18,14 +17,26 @@
     </style>
 
 
-
-    <style name ="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:colorButtonNormal">@color/colorAccent</item>
+    <style name ="AppTheme.ButtonPrimary" parent="Widget.AppCompat.Button.Colored">
         <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:radius">10dp</item>
         <item name="android:topRightRadius">10dp</item>
         <item name="android:topLeftRadius">10dp</item>
         <item name="android:bottomLeftRadius">10dp</item>
         <item name="android:bottomRightRadius">10dp</item>
+    </style>
+
+    <style name="AppTheme.ButtonDelete" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/delete_button</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="AppTheme.ButtonPopUp" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/popup_button</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+
     </style>
 
 </resources>

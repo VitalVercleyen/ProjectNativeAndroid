@@ -9,8 +9,8 @@ data class Aanwezigheid(val Id: Int,
                         var Kids: ArrayList<ScoutsKid>?) : Serializable{
 
 
-    public fun voegToe(naam : String, isboy : Boolean){
-        var kid = ScoutsKid(Kids!!.size+ 1, naam, if (isboy) "boy" else "girl",false, false)
+    public fun voegToe(naam : String, gender : String){
+        var kid = ScoutsKid(Kids!!.size+ 1, naam, gender,false, false)
         Kids!!.add(kid)
     }
 }

@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="350dp"
     android:layout_height="475dp"
-    android:background="@color/colorWhite"
+    android:background="@drawable/popup_border"
     android:padding="5dp"
     android:layout_gravity="center">
 
@@ -43,6 +43,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/boy" />
+
+        <ImageView
+            android:id="@+id/iv_x"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/xgender" />
 
         <ImageView
             android:id="@+id/iv_girl"
