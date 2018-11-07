@@ -10,7 +10,7 @@ import vercleyen.vital.fosapp.Domain.ScoutsKid
 import vercleyen.vital.fosapp.R
 
 //This class sets the RecycleViews up incl click listeners
-class ProgrammaAdapter(private val programma : ArrayList<Activiteit>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ProgrammaAdapter(private val programma : ArrayList<Activiteit>, private val clickListener: (Activiteit) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //Gets the items inside the list
     override fun getItemCount(): Int {
@@ -25,7 +25,7 @@ class ProgrammaAdapter(private val programma : ArrayList<Activiteit>) : Recycler
 
     //After the items are added this function calls the bind function
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ViewHolder).bind(programma[position])
+        (holder as ViewHolder).bind(programma[position], clickListener)
     }
 
 }

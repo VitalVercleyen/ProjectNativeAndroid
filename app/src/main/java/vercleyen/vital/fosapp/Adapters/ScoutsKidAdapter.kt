@@ -44,9 +44,10 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         itemView.imageView.setImageResource(genderMap[scoutsKid.gender]!!)
     }
 
-    fun bind(activeteit : Activiteit){
-        itemView.tv_date.text = activeteit.date
-        itemView.tv_activiteit.text = activeteit.name
+    fun bind(activiteit : Activiteit, clickListener: (Activiteit) -> Unit){
+        itemView.tv_date.text = activiteit.date
+        itemView.tv_activiteit.text = activiteit.name
+        itemView.setOnClickListener{clickListener(activiteit)}
     }
 
 }

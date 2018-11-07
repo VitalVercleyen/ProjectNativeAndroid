@@ -42,7 +42,6 @@ class PresenceListFragment : Fragment() {
         var rootView =  inflater.inflate(R.layout.fragment_presence_list, container, false)
         aanwezigheid = DummyDataSuplier().AanwezigheidData()
         myDialog = Dialog(this.context)
-        rootView.tv_Datum.setText(aanwezigheid.Date)
         refresh(rootView, aanwezigheid.Kids!!)
         rootView.btn_voegToe.setOnClickListener { voegKidToePopUp(rootView) }
         searchBox = rootView.et_search
@@ -88,15 +87,13 @@ class PresenceListFragment : Fragment() {
     }
 
     private fun voegKidToePopUp(view : View){
-        var boy : ImageView? = null
-        var girl : ImageView? = null
-        var x : ImageView? =  null
-        var name : EditText? = null
+
         myDialog!!.setContentView(R.layout.add_kid_popup)
-        name =  myDialog!!.findViewById(R.id.et_name)
-        boy = myDialog!!.findViewById(R.id.iv_boy) as ImageView
-        girl = myDialog!!.findViewById(R.id.iv_girl) as ImageView
-        x = myDialog!!.findViewById(R.id.iv_x) as ImageView
+        val name =  myDialog!!.findViewById(R.id.et_ActName) as EditText
+        val boy = myDialog!!.findViewById(R.id.iv_boy) as ImageView
+        val girl = myDialog!!.findViewById(R.id.iv_girl) as ImageView
+        val x = myDialog!!.findViewById(R.id.iv_x) as ImageView
+        val exit = myDialog!!.findViewById(R.id.tv_close) as TextView
         boy.setOnClickListener{
             voegKidToe(view, name!!.text.toString() ,"boy")
             myDialog!!.dismiss()
@@ -107,6 +104,9 @@ class PresenceListFragment : Fragment() {
         }
         x.setOnClickListener {
             voegKidToe(view, name!!.text.toString(), "x")
+            myDialog!!.dismiss()
+        }
+        exit.setOnClickListener {
             myDialog!!.dismiss()
         }
 
