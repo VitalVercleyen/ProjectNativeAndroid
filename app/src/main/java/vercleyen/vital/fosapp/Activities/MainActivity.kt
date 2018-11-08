@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import vercleyen.vital.fosapp.Fragments.AnnouncementFragment
 import vercleyen.vital.fosapp.Fragments.PresenceListFragment
 import vercleyen.vital.fosapp.Fragments.ProgramFragment
 import vercleyen.vital.fosapp.R
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
+                changeFragment(AnnouncementFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
