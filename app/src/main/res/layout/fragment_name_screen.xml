@@ -12,48 +12,68 @@
 
         <Button
             android:id="@+id/b_volgende"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="192dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="8dp"
-            android:text="@string/volgende"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="192dp"
             android:onClick="onVolgendeClicked"
+            android:text="@string/volgende"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_naam"
-            app:layout_constraintVertical_bias="0.147" />
+            app:layout_constraintVertical_bias="0.31" />
 
         <EditText
             android:id="@+id/et_naam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_width="250dp"
+            android:layout_height="39dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="8dp"
             android:ems="10"
+            android:gravity="center"
             android:inputType="textPersonName"
             android:text=""
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tekst" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-        <TextView
-            android:id="@+id/tv_tekst"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:text="@string/geef_je_totem_naam_string_app_name"
-            android:textSize="30sp"
-            android:textColor="@color/colorWhite"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="368dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="160dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_tekst"
+                android:layout_width="348dp"
+                android:layout_height="53dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="@string/geef_je_totem_naam_string_app_name"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorgrey" />
+        </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 

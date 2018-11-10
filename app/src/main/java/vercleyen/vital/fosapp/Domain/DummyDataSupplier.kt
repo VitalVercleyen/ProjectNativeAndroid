@@ -1,8 +1,5 @@
 package vercleyen.vital.fosapp.Domain
 
-import android.icu.util.LocaleData
-import java.text.SimpleDateFormat
-import java.time.temporal.TemporalQueries
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -41,5 +38,16 @@ class DummyDataSuplier {
         activiteiten.add(activiteit)
 
         return activiteiten
+    }
+
+
+    public fun AankondigingData() : ArrayList<Aankondiging> {
+        var aankondigingen : ArrayList<Aankondiging> = ArrayList()
+        aankondigingen.add(Aankondiging("Agame","hallo, ik ben agame en ik typ dit voluit"))
+        aankondigingen.add(Aankondiging("Insephe","hallo, ik ben Insephe en ik typ dit voluit, ik ben de zus van Agame en ik denk dat deze app goed zal komen, veel succes"))
+        aankondigingen.add(Aankondiging("Phylax","ja"))
+        aankondigingen.add(Aankondiging("Caprinae","Goeiemorgen"))
+
+        return aankondigingen
     }
 }

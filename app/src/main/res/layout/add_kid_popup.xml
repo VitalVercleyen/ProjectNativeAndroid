@@ -29,16 +29,27 @@
             android:layout_height="93dp"
             android:layout_gravity="end"
             android:gravity="center"
-            android:text="Vul de naam in en selecteer het geslacht"
+            android:text="Vul de naam in en selecteer het gender"
+            android:textSize="20sp"
             android:textStyle="bold" />
+
+        <View
+            android:id="@+id/divider10"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:paddingBottom="5dp"
+            android:background="@color/colorgrey"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
 
         <EditText
             android:id="@+id/et_ActName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="39dp"
             android:ems="10"
+            android:gravity="center"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Naam" />
 
     </LinearLayout>
 
@@ -49,22 +60,23 @@
 
         <ImageView
             android:id="@+id/iv_boy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/boy" />
 
         <ImageView
             android:id="@+id/iv_x"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="100dp"
+            android:layout_height="110dp"
             android:layout_weight="1"
+            android:paddingTop="5dp"
             app:srcCompat="@drawable/xgender" />
 
         <ImageView
             android:id="@+id/iv_girl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/girl" />
     </LinearLayout>

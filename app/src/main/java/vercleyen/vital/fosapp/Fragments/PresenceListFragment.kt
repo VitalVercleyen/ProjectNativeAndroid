@@ -45,7 +45,7 @@ class PresenceListFragment : Fragment() {
         refresh(rootView, aanwezigheid.Kids!!)
         rootView.btn_voegToe.setOnClickListener { voegKidToePopUp(rootView) }
         searchBox = rootView.et_search
-        setRecyclerViewHeight(rootView)
+
 
 
         setFilterList(searchBox!!, rootView)
@@ -69,22 +69,6 @@ class PresenceListFragment : Fragment() {
         myDialog!!.show()
     }
 
-    private fun setRecyclerViewHeight(view:View){
-       var displaymetrics : DisplayMetrics = DisplayMetrics();
-        (activity as MainActivity).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        //if you need three fix imageview in width
-        var devicewidth : Int = displaymetrics.widthPixels;
-
-        //if you need 4-5-6 anything fix imageview in height
-        var deviceheight : Int = (displaymetrics.heightPixels / 100) * 60
-
-        view.rv_scoutsKidLijst.getLayoutParams().width = devicewidth;
-
-        //if you need same height as width you can set devicewidth in holder.image_view.getLayoutParams().height
-        view.rv_scoutsKidLijst.getLayoutParams().height = deviceheight;
-
-
-    }
 
     private fun voegKidToePopUp(view : View){
 

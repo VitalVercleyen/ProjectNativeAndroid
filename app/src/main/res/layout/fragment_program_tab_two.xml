@@ -15,25 +15,31 @@
         <EditText
             android:id="@+id/et_beschr"
             android:layout_width="match_parent"
-            android:layout_height="226dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="345dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="80dp"
             android:gravity="start|top"
             android:text="Beschrijving van het spel"
             android:textColor="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_beschrTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_beschrTitle"
+            app:layout_constraintVertical_bias="0.31" />
 
         <TextView
             android:id="@+id/tv_beschrTitle"
-            android:layout_width="102dp"
-            android:layout_height="30dp"
+            android:layout_width="154dp"
+            android:layout_height="24dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="Beschrijving"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,27 +47,27 @@
 
         <TextView
             android:id="@+id/tv_benodTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="27dp"
+            android:layout_width="155dp"
+            android:layout_height="41dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="116dp"
             android:text="Benodigheden"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_benodigdheden"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="136dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="3dp"
-            android:layout_marginBottom="12dp"
             android:backgroundTint="@color/colorWhite"
             android:gravity="start|top"
             android:text="benodigheden voor het spel"
             android:textColor="@color/colorBlack"
-            app:layout_constraintBottom_toTopOf="@+id/tv_beschrTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,16 +75,15 @@
 
         <Button
             android:id="@+id/btn_wijzig"
-            android:layout_width="128dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="22dp"
+            android:layout_width="157dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="3dp"
+            android:textSize="20sp"
+            android:background="@drawable/button_background"
             android:text="Wijzig"
-            app:layout_constraintBottom_toTopOf="@+id/et_benodigdheden"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.842" />
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>

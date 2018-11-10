@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tv_nameKid"
-    android:layout_width="300dp"
+    android:layout_width="320dp"
     android:layout_height="475dp"
     android:layout_gravity="center"
     android:background="@drawable/popup_border"
@@ -29,6 +29,7 @@
             android:layout_width="77dp"
             android:layout_height="77dp"
             android:layout_weight="1"
+            android:paddingBottom="10dp"
             app:srcCompat="@drawable/boy" />
 
         <TextView

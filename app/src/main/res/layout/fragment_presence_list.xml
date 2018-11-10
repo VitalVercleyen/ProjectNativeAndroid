@@ -13,78 +13,111 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_scoutsKidLijst"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/const_background"
             android:layout_width="match_parent"
-            android:layout_height="308dp"
-            android:layout_marginBottom="50dp"
-            android:background="@color/colorWhite"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:background="@color/colorDarkBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
-        <EditText
-            android:id="@+id/et_search"
-            android:layout_width="189dp"
-            android:layout_height="27dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/text_background"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/divider5"
-            app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/btn_voegToe"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="60dp"
+                android:background="@drawable/circle_button"
+                android:drawableStart="@drawable/ic_add_black_24dp"
+                android:paddingLeft="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/colorBackground"
+                app:layout_constraintBottom_toTopOf="@+id/rv_scoutsKidLijst"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/cookie"
+                app:layout_constraintBottom_toTopOf="@+id/divider5"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="39dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/attendance_list"
+                app:layout_constraintBottom_toTopOf="@+id/divider5"
+                app:layout_constraintEnd_toStartOf="@+id/imageView7" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="187dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/text_background"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_scoutsKidLijst"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="53dp"
+                android:layout_marginBottom="50dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="128dp"
-            android:layout_height="59dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_background"
+            android:drawableLeft="@drawable/ic_save_black_24dp"
             android:text="Opslaan"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_voegToe"
-            android:layout_width="128dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
-            android:text="voeg toe"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:paddingLeft="5dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/const_background"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <View
-            android:id="@+id/divider5"
+            android:id="@+id/divider4"
             android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@color/colorBackground"
-            app:layout_constraintBottom_toTopOf="@+id/rv_scoutsKidLijst"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toTopOf="@+id/const_background"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="39dp"
-            android:layout_height="38dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/attendance_list"
-            app:layout_constraintBottom_toTopOf="@+id/divider5"
-            app:layout_constraintEnd_toStartOf="@+id/imageView7" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="43dp"
-            android:layout_height="38dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/cookie"
-            app:layout_constraintBottom_toTopOf="@+id/divider5"
-            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </android.support.constraint.ConstraintLayout>

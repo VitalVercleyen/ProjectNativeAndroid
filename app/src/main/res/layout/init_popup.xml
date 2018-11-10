@@ -17,6 +17,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:gravity="center"
+            android:textSize="20sp"
             android:text=""
             android:textStyle="bold" />
 
@@ -32,24 +33,21 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:gravity="center"
+            android:textSize="20sp"
             android:text="@string/popupDial"
             android:textStyle="bold" />
 
     </LinearLayout>
 
 
-
-
-
-
     <Button
         android:id="@+id/btnfollow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ik begrijp het"
         style="@style/AppTheme.ButtonPopUp"
-        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/colorWhite"/>
+        android:layout_marginTop="25dp"
+        android:text="Ik begrijp het"
+        android:textColor="@color/colorWhite" />
 
 </LinearLayout>
