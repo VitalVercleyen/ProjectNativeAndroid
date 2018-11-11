@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private var sharedPreferences : SharedPreferencesClass? = null
     private var myDialog : Dialog? = null
+    private var logoMap = hashMapOf<String, Int>("Bever" to R.drawable.ic_beaver_head, "Welpen" to R.drawable.ic_animal_track, "Wolven" to R.drawable.ic_wolf, "JVJG" to R.drawable.ic_foot, "VG" to R.drawable.ic_man, "Seniors" to R.drawable.ic_manager, "Stam" to R.drawable.ic_trunk)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +38,12 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
         myDialog = Dialog(this)
         sharedPreferences = SharedPreferencesClass(this)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setLogo(logoMap[sharedPreferences!!.getTak()]!!)
+        supportActionBar!!.setDisplayUseLogoEnabled(true)
 
-        setTitle(sharedPreferences!!.getTotem())
+
+        setTitle(" " + sharedPreferences!!.getTotem())
 
         navigation.setOnNavigationItemSelectedListener(OnNavigationItemSelectedListener)
     }
@@ -110,8 +115,8 @@ class MainActivity : AppCompatActivity() {
         context.toast(message)
     }
 
-    fun getTak(){
-        sharedPreferences!!.getTak()
+    fun getTak() : String{
+        return sharedPreferences!!.getTak()
     }
 
 

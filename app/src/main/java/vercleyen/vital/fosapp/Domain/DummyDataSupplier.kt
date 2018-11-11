@@ -8,13 +8,13 @@ class DummyDataSuplier {
     public fun AanwezigheidData() : Aanwezigheid{
         var scoutsKids : ArrayList<ScoutsKid> = ArrayList()
         for(i in 1..10)   {
-            var kid = ScoutsKid(i, ("kind" + i), if(i % 2 == 0) "boy" else "girl", false, false)
+            var kid = ScoutsKid(i, ("kind" + i), if(i % 2 == 0) "boy" else "girl", "JVJG",false, false)
             scoutsKids.add(kid)
 
         }
 
         val currentDate = Date(System.currentTimeMillis())
-        var aanwezigheid = Aanwezigheid(23, currentDate.toString(), scoutsKids)
+        var aanwezigheid = Aanwezigheid(23, currentDate.toString(), "JVJG",scoutsKids)
         return aanwezigheid
     }
 

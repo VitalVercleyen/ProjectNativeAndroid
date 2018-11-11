@@ -76,9 +76,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_settings_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\Vital Verleyen" />
+                            <entry key="outputName" value="ic_manager" />
+                            <entry key="sourceFile" value="C:\Users\Vital Verleyen\Downloads\manager.svg" />
                           </map>
                         </option>
                       </PersistentState>

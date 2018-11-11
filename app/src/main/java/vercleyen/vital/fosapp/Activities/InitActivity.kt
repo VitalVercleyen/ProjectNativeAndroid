@@ -36,9 +36,9 @@ class InitActivity : AppCompatActivity() {
         myDialog = Dialog(this)
         setTitle("")
         sharedPreferences = SharedPreferencesClass(this)
-        if(sharedPreferences!!.getFirstStart() == "1"){
+     /*   if(sharedPreferences!!.getFirstStart() == "1"){
            changeActivity()
-        }
+        }*/
     }
 
 
@@ -61,14 +61,17 @@ class InitActivity : AppCompatActivity() {
                 tak = "Wolven"
             }
             btn_jvjg.id -> {
-                tak = "Jonge Verkenners & Jonge Gidsen"
+                tak = "JVJG"
 
             }
             btn_vg.id -> {
-                tak = "Verkenners & Gidsen"
+                tak = "VG"
             }
             btn_seniors.id -> {
                 tak = "Seniors"
+            }
+            btn_stam.id -> {
+                tak = "Stam"
             }
         }
         sharedPreferences!!.setTak(tak)

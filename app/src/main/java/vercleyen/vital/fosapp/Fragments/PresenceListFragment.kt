@@ -117,8 +117,7 @@ class PresenceListFragment : Fragment() {
     }
 
     private fun voegKidToe(view: View, name :String,  gender : String){
-
-        aanwezigheid.voegToe(name, gender)
+        aanwezigheid.voegToe(name, gender, (activity as MainActivity).getTak())
         refresh(view, aanwezigheid.Kids!!)
     }
 
