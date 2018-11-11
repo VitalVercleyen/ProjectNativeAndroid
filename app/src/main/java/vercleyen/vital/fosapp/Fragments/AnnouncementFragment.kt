@@ -25,12 +25,20 @@ class AnnouncementFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_announcement, container, false)
-
         refresh(rootView,  aankondigingen)
 
+        rootView.btn_send.setOnClickListener{ verstuur(rootView)}
         setupKeyboardHide(rootView.et_message)
 
         return rootView
+    }
+
+    private fun verstuur(view : View){
+        val aankondiging = Aankondiging((activity as MainActivity).getNaam(),view.et_message.text.toString())
+        aankondigingen.add(aankondiging)
+        (activity as MainActivity).hideKeyboard(view)
+        view.et_message.text.clear()
+        refresh(view, aankondigingen)
     }
 
     private fun setupKeyboardHide(editText : EditText){

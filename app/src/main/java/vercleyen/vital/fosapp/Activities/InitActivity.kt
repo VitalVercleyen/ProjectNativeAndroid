@@ -1,11 +1,13 @@
 package vercleyen.vital.fosapp.Activities
 
+import android.app.Activity
 import android.os.Bundle
 import android.app.Dialog
 import android.content.Intent
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import vercleyen.vital.fosapp.R
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -37,7 +39,6 @@ class InitActivity : AppCompatActivity() {
         if(sharedPreferences!!.getFirstStart() == "1"){
            changeActivity()
         }
-        sharedPreferences!!.setFirstStart("1")
     }
 
 
@@ -72,7 +73,9 @@ class InitActivity : AppCompatActivity() {
         }
         sharedPreferences!!.setTak(tak)
 
-
+        if(sharedPreferences!!.getFirstStart() == "2"){
+            changeActivity()
+        }
         ShowPopup(rootView)
 
 
@@ -104,7 +107,13 @@ class InitActivity : AppCompatActivity() {
 
 
     fun changeActivity(){
+        sharedPreferences!!.setFirstStart("1")
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    fun hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

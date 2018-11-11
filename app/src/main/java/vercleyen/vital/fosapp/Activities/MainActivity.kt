@@ -1,14 +1,21 @@
 package vercleyen.vital.fosapp.Activities
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import vercleyen.vital.fosapp.Fragments.AnnouncementFragment
@@ -20,6 +27,7 @@ import vercleyen.vital.fosapp.SharedPreferences.SharedPreferencesClass
 class MainActivity : AppCompatActivity() {
 
     private var sharedPreferences : SharedPreferencesClass? = null
+    private var myDialog : Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +35,53 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(fragmentContainer.id, PresenceListFragment())
         transaction.commit()
+        myDialog = Dialog(this)
         sharedPreferences = SharedPreferencesClass(this)
+
         setTitle(sharedPreferences!!.getTotem())
+
         navigation.setOnNavigationItemSelectedListener(OnNavigationItemSelectedListener)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.appbar, menu)
+        return true
+    }
+
+    fun changeSettings(mi : MenuItem){
+        sharedPreferences!!.setFirstStart("2")
+        val intent = Intent(this, InitActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item!!.itemId){
+            R.id.tv_title ->{
+                showSettingMenu()
+            }
+
+        }
+        return true
+    }
+
+    private fun showSettingMenu(){
+            myDialog!!.setContentView(R.layout.kid_setting_popup)
+            val txtTitle = myDialog!!.findViewById(R.id.tv_title) as TextView
+            val exit = myDialog!!.findViewById(R.id.tv_close) as TextView
+            val portrait = myDialog!!.findViewById(R.id.iv_kid) as ImageView
+            val btnNext = myDialog!!.findViewById(R.id.btn_nextTak) as Button
+            val btnPrevious = myDialog!!.findViewById(R.id.btn_previousTak) as Button
+            val btnEdit = myDialog!!.findViewById(R.id.btn_edit) as Button
+            val btnDelete = myDialog!!.findViewById(R.id.btn_delete) as Button
+            exit.setOnClickListener {
+                myDialog!!.dismiss()
+            }
+            myDialog!!.show()
+
+    }
+
+    fun getNaam() : String {
+        return sharedPreferences!!.getTotem()
     }
 
     private val OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -61,6 +113,8 @@ class MainActivity : AppCompatActivity() {
     fun getTak(){
         sharedPreferences!!.getTak()
     }
+
+
 
 
 

@@ -24,7 +24,7 @@ class AankondigingAdapter(private val aankondigingen : ArrayList<Aankondiging>) 
 
     //After the items are added this function calls the bind function
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ViewHolder).bind(aankondigingen[position])
+        (holder as ViewHolder).bind(aankondigingen[aankondigingen.size - position -1])
     }
 
 }

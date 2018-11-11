@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_name_screen.view.*
+import vercleyen.vital.fosapp.Activities.InitActivity
 import vercleyen.vital.fosapp.Activities.MainActivity
 
 import vercleyen.vital.fosapp.R
@@ -24,7 +25,7 @@ class NameFragment : Fragment() {
 
         rootView.et_naam.setOnFocusChangeListener{v, hasFocus ->
             if(!hasFocus){
-                (activity as MainActivity).hideKeyboard(v)
+                (activity as InitActivity).hideKeyboard(v)
             }
         }
 

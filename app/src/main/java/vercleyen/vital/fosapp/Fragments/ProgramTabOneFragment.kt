@@ -34,10 +34,8 @@ class ProgramTabOneFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         var rootview =  inflater.inflate(R.layout.fragment_program_tab_one, container, false)
-        rootview.tv_tak.setText("Programma " + (activity as MainActivity).getTak())
         rootview.rv_programma.layoutManager = LinearLayoutManager(this.context)
         rootview.rv_programma.adapter = ProgrammaAdapter(activiteiten) { activiteit -> activiteitClickedPopUp()}
-
         myDialog = Dialog(this.context)
 
         return rootview
