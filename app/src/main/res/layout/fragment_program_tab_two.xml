@@ -10,14 +10,17 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <EditText
             android:id="@+id/et_beschr"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="345dp"
+            android:layout_marginTop="330dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="80dp"
             android:gravity="start|top"
@@ -32,8 +35,8 @@
 
         <TextView
             android:id="@+id/tv_beschrTitle"
-            android:layout_width="154dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
@@ -47,8 +50,8 @@
 
         <TextView
             android:id="@+id/tv_benodTitle"
-            android:layout_width="155dp"
-            android:layout_height="41dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="116dp"
             android:text="Benodigheden"

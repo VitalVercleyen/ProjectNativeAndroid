@@ -22,12 +22,17 @@ import vercleyen.vital.fosapp.Domain.ScoutsKid
 import vercleyen.vital.fosapp.R
 import android.util.DisplayMetrics
 import vercleyen.vital.fosapp.Activities.MainActivity
+import android.app.Activity
+import android.view.inputmethod.InputMethodManager
+import kotlinx.android.synthetic.main.fragment_name_screen.view.*
 
 
 class PresenceListFragment : Fragment() {
 
 
     private lateinit var aanwezigheid : Aanwezigheid
+    private var aanwezigKids : ArrayList<ScoutsKid> = ArrayList()
+    private var vieruurtjeKids : ArrayList<ScoutsKid> = ArrayList()
     private var searchBox: EditText? = null
     private var filteredAanw : Aanwezigheid = DummyDataSuplier().AanwezigheidData()
     private var myDialog : Dialog? = null
@@ -43,13 +48,27 @@ class PresenceListFragment : Fragment() {
         aanwezigheid = DummyDataSuplier().AanwezigheidData()
         myDialog = Dialog(this.context)
         refresh(rootView, aanwezigheid.Kids!!)
+        rootView.btn_save.setOnClickListener{opslaan(rootView.tv_aantal)}
         rootView.btn_voegToe.setOnClickListener { voegKidToePopUp(rootView) }
         searchBox = rootView.et_search
-
-
-
+        searchBox!!.setOnFocusChangeListener { v, hasFocus ->  }
         setFilterList(searchBox!!, rootView)
+        setupKeyboardHide(rootView.et_search)
+        (activity as MainActivity).hideKeyboard(rootView)
         return rootView
+    }
+
+    private fun opslaan(aantal : TextView){
+        aantal.setText(aanwezigKids.size.toString())
+        aantal.setBackgroundResource(R.drawable.popup_border)
+    }
+
+    private fun setupKeyboardHide(editText : EditText){
+        editText.setOnFocusChangeListener{v, hasFocus ->
+            if(!hasFocus){
+                (activity as MainActivity).hideKeyboard(v)
+            }
+        }
     }
 
     private fun scoutsKidClickedPopUp(scoutsKid : ScoutsKid){
@@ -79,15 +98,15 @@ class PresenceListFragment : Fragment() {
         val x = myDialog!!.findViewById(R.id.iv_x) as ImageView
         val exit = myDialog!!.findViewById(R.id.tv_close) as TextView
         boy.setOnClickListener{
-            voegKidToe(view, name!!.text.toString() ,"boy")
+            voegKidToe(view, name.text.toString() ,"boy")
             myDialog!!.dismiss()
         }
         girl.setOnClickListener{
-            voegKidToe(view, name!!.text.toString(), "girl")
+            voegKidToe(view, name.text.toString(), "girl")
             myDialog!!.dismiss()
         }
         x.setOnClickListener {
-            voegKidToe(view, name!!.text.toString(), "x")
+            voegKidToe(view, name.text.toString(), "x")
             myDialog!!.dismiss()
         }
         exit.setOnClickListener {
@@ -125,10 +144,26 @@ class PresenceListFragment : Fragment() {
         })
     }
 
+
+    private fun scoutsKidCheckBoxClicked(list : ArrayList<ScoutsKid>, scoutsKid: ScoutsKid){
+        if(list.contains(scoutsKid)){
+            list.remove(scoutsKid)
+        } else {
+            list.add(scoutsKid)
+        }
+
+    }
+
+
+
+
     private fun refresh(view : View, list : ArrayList<ScoutsKid>){
 
         view.rv_scoutsKidLijst.layoutManager = LinearLayoutManager(this.context)
-        view.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(list) { scoutsKid -> scoutsKidClickedPopUp(scoutsKid)}
+        val itemClickedListener : (ScoutsKid) -> Unit = {scoutsKid -> scoutsKidClickedPopUp(scoutsKid)}
+        val aanwezigClickedListener : (ScoutsKid) -> Unit = {scoutsKid -> scoutsKidCheckBoxClicked(aanwezigKids, scoutsKid)}
+        val vierUuClickedListener : (ScoutsKid) -> Unit = {scoutsKid -> scoutsKidCheckBoxClicked(vieruurtjeKids, scoutsKid)}
+        view.rv_scoutsKidLijst.adapter = ScoutsKidAdapter(list,itemClickedListener, aanwezigClickedListener, vierUuClickedListener)
     }
 
 

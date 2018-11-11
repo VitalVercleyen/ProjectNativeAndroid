@@ -13,11 +13,13 @@ import vercleyen.vital.fosapp.R
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     //Gets run after the viewholder is made, this adds data to the fields
     private var genderMap : HashMap<String, Int> = hashMapOf("boy" to R.drawable.boy, "girl" to R.drawable.girl,"x" to R.drawable.xgender)
-    fun bind(scoutsKid: ScoutsKid, clickListener: (ScoutsKid) -> Unit) {
+    fun bind(scoutsKid: ScoutsKid, itemClickListener: (ScoutsKid) -> Unit, aanwClickListener: (ScoutsKid) -> Unit,  vierClickListener: (ScoutsKid) -> Unit) {
         itemView.tv_ScoutsKidName.text = scoutsKid.Name
         itemView.cb_Aanwezig.isChecked = scoutsKid.Aanwezig
         itemView.cb_vieruurtje.isChecked = scoutsKid.VierUurtje
-        itemView.setOnClickListener{clickListener(scoutsKid)}
+        itemView.cb_Aanwezig.setOnClickListener { aanwClickListener(scoutsKid) }
+        itemView.cb_vieruurtje.setOnClickListener { vierClickListener(scoutsKid) }
+        itemView.setOnClickListener{itemClickListener(scoutsKid)}
         itemView.imageView.setImageResource(genderMap[scoutsKid.gender]!!)
     }
 

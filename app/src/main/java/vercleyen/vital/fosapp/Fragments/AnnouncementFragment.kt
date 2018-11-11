@@ -6,8 +6,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import kotlinx.android.synthetic.main.fragment_announcement.view.*
 import kotlinx.android.synthetic.main.fragment_presence_list.view.*
+import vercleyen.vital.fosapp.Activities.MainActivity
 import vercleyen.vital.fosapp.Adapters.AankondigingAdapter
 import vercleyen.vital.fosapp.Domain.Aankondiging
 import vercleyen.vital.fosapp.Domain.DummyDataSuplier
@@ -26,8 +28,17 @@ class AnnouncementFragment : Fragment() {
 
         refresh(rootView,  aankondigingen)
 
+        setupKeyboardHide(rootView.et_message)
 
         return rootView
+    }
+
+    private fun setupKeyboardHide(editText : EditText){
+        editText.setOnFocusChangeListener{v, hasFocus ->
+            if(!hasFocus){
+                (activity as MainActivity).hideKeyboard(v)
+            }
+        }
     }
 
     private fun refresh(view : View, list : ArrayList<Aankondiging>){

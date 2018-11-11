@@ -20,7 +20,17 @@ class NameFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_name_screen, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_name_screen, container, false)
+
+        rootView.et_naam.setOnFocusChangeListener{v, hasFocus ->
+            if(!hasFocus){
+                (activity as MainActivity).hideKeyboard(v)
+            }
+        }
+
+
+
+        return rootView
 
     }
 

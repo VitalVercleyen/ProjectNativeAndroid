@@ -8,6 +8,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import vercleyen.vital.fosapp.Fragments.AnnouncementFragment
@@ -69,6 +70,11 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(fragmentContainer.id, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    fun hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager!!.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 
