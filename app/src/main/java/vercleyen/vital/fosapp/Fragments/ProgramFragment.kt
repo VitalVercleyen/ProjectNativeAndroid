@@ -31,7 +31,7 @@ class ProgramFragment : Fragment() {
         val viewPager = rootview.viewpager as ViewPager
         val mLayoutManager = LinearLayoutManager(activity)
         mLayoutManager.orientation = LinearLayoutManager.VERTICAL
-        viewPager.adapter = SimplePagerAdapter(fragmentManager!!, tabLayout.tabCount)
+        viewPager.adapter = SimplePagerAdapter(childFragmentManager, tabLayout.tabCount)
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
         tabLayout.setupWithViewPager(viewPager)
         tabLayout.getTabAt(0)!!.setText("Programma")

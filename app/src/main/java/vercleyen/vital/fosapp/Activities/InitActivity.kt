@@ -36,9 +36,9 @@ class InitActivity : AppCompatActivity() {
         myDialog = Dialog(this)
         setTitle("")
         sharedPreferences = SharedPreferencesClass(this)
-     /*   if(sharedPreferences!!.getFirstStart() == "1"){
+        if(sharedPreferences!!.getFirstStart() == "1"){
            changeActivity()
-        }*/
+        }
     }
 
 
